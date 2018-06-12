@@ -8,7 +8,7 @@
  * @license http://www.blesta.com/license/ The Blesta License Agreement
  * @link http://www.blesta.com/ Blesta
  */
-class NewTab extends LiveAnsweringController
+class LiveAnswering extends LiveAnsweringController
 {
     /**
      * Redirect to the ClientTickets controller

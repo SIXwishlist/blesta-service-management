@@ -36,11 +36,11 @@ class LiveAnsweringPlugin extends Plugin
         'options' => [
           'sub' => [
             [
-              'uri' => 'plugin/live_answering/new_tab/',
-              'name' => 'Number Management - WIP'
+              'uri' => 'plugin/live_answering/client_main/',
+              'name' => 'Number Management'
             ],
             [
-              'uri' => 'plugin/live_answering/client_main/',
+              'uri' => 'plugin/live_answering/live_answering/',
               'name' => 'Live Answering'
             ]
           ]
