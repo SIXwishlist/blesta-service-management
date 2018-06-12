@@ -27,30 +27,29 @@ class LiveAnsweringPlugin extends Plugin
 
   public function getActions()
   {
-    /*
-    return [
-      [
-        'action' => 'nav_primary_client',
-        'uri' => 'plugin/live_answering/client_main/',
-        'name' => 'Live Answering'
-      ]
-    ];
-    */
 
     return [
+      // Client
       [
         'action' => 'nav_primary_client',
-        'uri' => 'plugin/live_answering/client_main/',
-        'name' => 'Live Answering'
+        'uri' => 'plugin/support_manager/client_main/',
+        'name' => Language::_('SupportManagerPlugin.nav_primary_client.main', true),
+        'options' => [
+          'sub' => [
+            [
+              'uri' => 'plugin/live_answering/new_tab/',
+              'name' => 'New Tab'
+            ],
+            [
+              'uri' => 'plugin/live_answering/client_main/',
+              'name' => 'Live Answering'
+            ]
+          ]
+        ]
       ]
-    ,
-    [
-      'action' => 'nav_new_tab',
-      'uri' => 'plugin/live_answering/new_tab/',
-      'name' => 'New Tab'
-    ]
-  ];
-}
+    ];
+
+  }
 
 
 }
