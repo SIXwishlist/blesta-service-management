@@ -8,7 +8,7 @@
  * @license http://www.blesta.com/license/ The Blesta License Agreement
  * @link http://www.blesta.com/ Blesta
  */
-class ClientMain extends LiveAnsweringController
+class ClientMain extends ServiceManagementController
 {
     /**
      * Redirect to the ClientTickets controller
@@ -23,7 +23,7 @@ class ClientMain extends LiveAnsweringController
        // $var3 = "world";
        // return $this->partial("client_main", compact("var1", "var2"));
 
-     //   $this->redirect($this->base_uri . 'plugin/live_answering/client_main/');
+     //   $this->redirect($this->base_uri . 'plugin/number_manager/client_main/');
     }
 
 
@@ -78,7 +78,7 @@ public function foo() {
 
 	   	if($this->action != 'edit')
 	   	{
-	   		  $this->requireLogin($this->base_uri . 'plugin/live_answering/client_main/edit/');
+	   		  $this->requireLogin($this->base_uri . 'plugin/service_management/client_main/edit/');
 	   	}
 
     }

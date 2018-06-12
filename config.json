@@ -1,7 +1,7 @@
 {
         "version": "1.0.0",
-        "name": "Live Answering",
-        "description": "Live Answering service configuration.",
+        "name": "Service Management",
+        "description": "Breezecom Service Management and Configuration Plugin",
         "authors": [
                 {
                         "name": "Bo",

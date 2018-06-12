@@ -1,6 +1,6 @@
 {
-    "name": "blesta/live_answering",
-    "description": "Live Answering service configuration",
+    "name": "blesta/service_management",
+    "description": "Service Managament and Configuration",
     "license": "proprietary",
     "type": "blesta-plugin",
     "require": {

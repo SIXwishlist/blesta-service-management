@@ -8,7 +8,7 @@
  * @license http://www.blesta.com/license/ The Blesta License Agreement
  * @link http://www.blesta.com/ Blesta
  */
-class LiveAnswering extends LiveAnsweringController
+class LiveAnswering extends ServiceManagementController
 {
     /**
      * Redirect to the ClientTickets controller
@@ -78,7 +78,7 @@ public function foo() {
 
 	   	if($this->action != 'edit')
 	   	{
-	   		  $this->requireLogin($this->base_uri . 'plugin/live_answering/client_main/edit/');
+	   		  $this->requireLogin($this->base_uri . 'plugin/service_management/client_main/edit/');
 	   	}
 
     }

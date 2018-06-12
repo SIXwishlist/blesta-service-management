@@ -8,7 +8,7 @@
 * @license http://www.blesta.com/license/ The Blesta License Agreement
 * @link http://www.blesta.com/ Blesta
 */
-class LiveAnsweringController extends AppController
+class ServiceManagementController extends AppController
 {
   /**
   * Setup
@@ -24,7 +24,7 @@ class LiveAnsweringController extends AppController
 
 
     // Load config
-    Configure::load('live_answering', dirname(__FILE__) . DS . 'config' . DS);
+    Configure::load('service_management', dirname(__FILE__) . DS . 'config' . DS);
 
     // Auto load language for the controller
     Language::loadLang([Loader::fromCamelCase(get_class($this))], null, dirname(__FILE__) . DS . 'language' . DS);
