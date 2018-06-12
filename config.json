@@ -1,0 +1,15 @@
+{
+        "version": "1.0.0",
+        "name": "Number Manager",
+        "description": "Allows users to view their services.",
+        "authors": [
+                {
+                        "name": "Ishwarya",
+                        "url": ""
+                },
+                {
+                        "name": "Bo",
+                        "url": ""
+                }
+        ]
+}

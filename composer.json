@@ -1,0 +1,9 @@
+{
+    "name": "blesta/number_manager",
+    "description": "Number Manager Service",
+    "license": "proprietary",
+    "type": "blesta-plugin",
+    "require": {
+        "blesta/composer-installer": "~1.0"
+    }
+
