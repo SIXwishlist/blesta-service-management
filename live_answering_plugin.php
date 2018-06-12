@@ -33,6 +33,13 @@ class LiveAnsweringPlugin extends Plugin
 	                'uri' => 'plugin/live_answering/client_main/',
 	                'name' => 'Live Answering'
 	            ]
+            ],
+
+            [
+	                'action' => 'nav_new_tab',
+	                'uri' => 'plugin/live_answering/new_tab/',
+	                'name' => 'New Tab'
+	            ]
             ];
       }
 
