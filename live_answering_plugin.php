@@ -29,16 +29,15 @@ class LiveAnsweringPlugin extends Plugin
   {
 
     return [
-      // Client
       [
         'action' => 'nav_primary_client',
-        'uri' => 'plugin/support_manager/client_main/',
-        'name' => Language::_('SupportManagerPlugin.nav_primary_client.main', true),
+        'uri' => 'plugin/live_answering/client_main/',
+        'name' => 'Service Management',
         'options' => [
           'sub' => [
             [
               'uri' => 'plugin/live_answering/new_tab/',
-              'name' => 'New Tab'
+              'name' => 'Number Management - WIP'
             ],
             [
               'uri' => 'plugin/live_answering/client_main/',
