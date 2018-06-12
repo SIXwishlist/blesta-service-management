@@ -1,12 +1,8 @@
 {
         "version": "1.0.0",
-        "name": "Number Manager",
-        "description": "Allows users to view their services.",
+        "name": "Live Answering",
+        "description": "Live Answering service configuration.",
         "authors": [
-                {
-                        "name": "Ishwarya",
-                        "url": ""
-                },
                 {
                         "name": "Bo",
                         "url": ""

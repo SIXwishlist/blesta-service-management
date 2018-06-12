@@ -1,6 +1,6 @@
 <?php
 // Plugin name
-$lang['NumberManagerPlugin.name'] = 'Number Manager';
+$lang['LiveAnsweringPlugin.name'] = 'Live Answering';
 
 // Plugin actions
-$lang['NumberManagerPlugin.nav_primary_client.main'] = 'Number Manager';
+$lang['LiveAnsweringPlugin.nav_primary_client.main'] = 'Live Answering';

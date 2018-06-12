@@ -1,9 +1,8 @@
 {
-    "name": "blesta/number_manager",
-    "description": "Number Manager Service",
+    "name": "blesta/live_answering",
+    "description": "Live Answering service configuration",
     "license": "proprietary",
     "type": "blesta-plugin",
     "require": {
         "blesta/composer-installer": "~1.0"
     }
-

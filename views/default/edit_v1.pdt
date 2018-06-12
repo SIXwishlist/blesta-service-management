@@ -1,4 +1,4 @@
-<div class="table-responsive">          
+<div class="table-responsive">
                 <?php
                         //to find client program
                         $url='http://www.numbermanager.com.au/api/getAdvancedService?authaccountid=26119&authemail=ishwarya.sridharan0410@gmail.com&password=83785287c883e66186d216ea6b31b27e&apikey=s1rlg0ywnpkYAWq087AqRH8iB0pMQCl5&
@@ -23,11 +23,11 @@ accountid=26249&serviceid=368061';
                                 }else{  ?>
                                 <?php if(strcmp($key,"serviceid")==0) { ?>
                                         <div id="my-info" class="col-md-3 hidden-xs hidden-sm">
-                                                        <div class="alert alert-info alert-dismissable">                                                                
-                                                                        <strong>Service ID : <?php print $value ?></strong> 
+                                                        <div class="alert alert-info alert-dismissable">
+                                                                        <strong>Service ID : <?php print $value ?></strong>
                                                         </div>
                                                 </div>
-                                        
+
                                         <div class="col-md-9 right_content">
                                         <div class="panel panel-blesta content_section">
                             <div class="panel-heading">
@@ -36,43 +36,43 @@ accountid=26249&serviceid=368061';
 
                                 <div class="panel_content">
                                                                  <div class="panel-body">
-                                                        
+
                                                 <table class="table table-curved table-striped" =>
                                         <thead>
                                             <tr>
-                                                <th>Group Name </th>    
-                                                                                               
+                                                <th>Group Name </th>
+
                                             </tr>
                                         </thead>
-                        
-               
+
+
                                                         <?php   }  ?>
-                                                        
-                                                
-                                                <?php                                           
+
+
+                                                <?php
                                                 if(strcmp($key,"groupname")==0) {
                                                                 $groupnames[] = $value;
-                                                        }       
+                                                        }
 
-                                                                                
+
                                     $converted .= $key . '&'. $value;
                                 }
                             }
                             foreach($groupnames as $group)        {     ?>
-                            <tbody>                                         
-                                                        <td><?php print $group ?></td>          
-                                        
+                            <tbody>
+                                                        <td><?php print $group ?></td>
+
                                                   <?php           }
 
-                                       
-                                                        
-                        }   ?>                                  
+
+
+                        }   ?>
                                         </tbody>
                                        </table>
-                                 
+
                                  </div>
-                                  
-                               </div>    
+
+                               </div>
 
 
 
@@ -81,13 +81,3 @@ accountid=26249&serviceid=368061';
 
 
 </div>
-
-
-
-
-
-
-
-
-
-

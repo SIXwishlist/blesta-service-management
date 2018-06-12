@@ -3,12 +3,12 @@
  * Support Manager parent controller
  *
  * @package blesta
- * @subpackage blesta.plugins.number_manager
+ * @subpackage blesta.plugins.live_answering
  * @copyright Copyright (c) 2010, Phillips Data, Inc.
  * @license http://www.blesta.com/license/ The Blesta License Agreement
  * @link http://www.blesta.com/ Blesta
  */
-class NumberManagerController extends AppController
+class LiveAnsweringController extends AppController
 {
     /**
      * Setup
@@ -18,18 +18,18 @@ class NumberManagerController extends AppController
         $this->structure->setDefaultView(APPDIR);
         parent::preAction();
 
-            // newly added 
+            // newly added
           // Require login
         $this->requireLogin();
 
 
         // Load config
-        Configure::load('number_manager', dirname(__FILE__) . DS . 'config' . DS);
+        Configure::load('live_answering', dirname(__FILE__) . DS . 'config' . DS);
 
         // Auto load language for the controller
         Language::loadLang([Loader::fromCamelCase(get_class($this))], null, dirname(__FILE__) . DS . 'language' . DS);
-        
-        
+
+
          Loader::loadModels($this, ['Users']);
 
         // Override default view directory
