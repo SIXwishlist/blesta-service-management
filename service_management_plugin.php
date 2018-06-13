@@ -22,6 +22,7 @@ class ServiceManagementPlugin extends Plugin
     return [
       [
         'action' => 'nav_primary_client',
+	'uri' => 'plugin/live_answering/client_main/',
         'name' => 'Service Management',
         'options' => [
           'sub' => [
