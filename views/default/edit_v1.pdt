@@ -1,83 +1,78 @@
 <div class="table-responsive">
-                <?php
-                        //to find client program
-                        $url='http://www.numbermanager.com.au/api/getAdvancedService?authaccountid=26119&authemail=ishwarya.sridharan0410@gmail.com&password=83785287c883e66186d216ea6b31b27e&apikey=s1rlg0ywnpkYAWq087AqRH8iB0pMQCl5&
-accountid=26249&serviceid=368061';
+  <?php
+  //to find client program
+  $url='http://www.numbermanager.com.au/api/getAdvancedService?authaccountid=26119&authemail=ishwarya.sridharan0410@gmail.com&password=83785287c883e66186d216ea6b31b27e&apikey=s1rlg0ywnpkYAWq087AqRH8iB0pMQCl5&
+  accountid=26249&serviceid=368061';
 
-                        $content = file_get_contents($url);
+  $content = file_get_contents($url);
 
-                        // converting json to array if given true else object
-                        $json = json_decode($content, true);
+  // converting json to array if given true else object
+  $json = json_decode($content, true);
 
-                        $converted = "";
-                        //call your function and pass your array and reference string
-                        _convertToString($json,$converted);
-                        //echo $converted;
-                        $groupnames = [];
-                        $destinations =[];
-                        function _convertToString($data,&$converted){
-                                foreach($data as $key => $value){
-                                if(is_array($value)){
-                                       _convertToString($value,$converted);
+  $converted = "";
+  //call your function and pass your array and reference string
+  _convertToString($json,$converted);
+  //echo $converted;
+  $groupnames = [];
+  $destinations =[];
+  function _convertToString($data,&$converted){
+    foreach($data as $key => $value){
+      if(is_array($value)){
+        _convertToString($value,$converted);
 
-                                }else{  ?>
-                                <?php if(strcmp($key,"serviceid")==0) { ?>
-                                        <div id="my-info" class="col-md-3 hidden-xs hidden-sm">
-                                                        <div class="alert alert-info alert-dismissable">
-                                                                        <strong>Service ID : <?php print $value ?></strong>
-                                                        </div>
-                                                </div>
+      }else{  ?>
+        <?php if(strcmp($key,"serviceid")==0) { ?>
+          <div id="my-info" class="col-md-3 hidden-xs hidden-sm">
+            <div class="alert alert-info alert-dismissable">
+              <strong>Service ID : <?php print $value ?></strong>
+            </div>
+          </div>
 
-                                        <div class="col-md-9 right_content">
-                                        <div class="panel panel-blesta content_section">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Configuration Services</h3>
-                            </div>
+          <div class="col-md-9 right_content">
+            <div class="panel panel-blesta content_section">
+              <div class="panel-heading">
+                <h3 class="panel-title">Configuration Services</h3>
+              </div>
 
-                                <div class="panel_content">
-                                                                 <div class="panel-body">
+              <div class="panel_content">
+                <div class="panel-body">
 
-                                                <table class="table table-curved table-striped" =>
-                                        <thead>
-                                            <tr>
-                                                <th>Group Name </th>
+                  <table class="table table-curved table-striped" =>
+                    <thead>
+                      <tr>
+                        <th>Group Name </th>
 
-                                            </tr>
-                                        </thead>
-
-
-                                                        <?php   }  ?>
+                      </tr>
+                    </thead>
 
 
-                                                <?php
-                                                if(strcmp($key,"groupname")==0) {
-                                                                $groupnames[] = $value;
-                                                        }
+                  <?php   }  ?>
 
 
-                                    $converted .= $key . '&'. $value;
-                                }
-                            }
-                            foreach($groupnames as $group)        {     ?>
-                            <tbody>
-                                                        <td><?php print $group ?></td>
-
-                                                  <?php           }
+                  <?php
+                  if(strcmp($key,"groupname")==0) {
+                    $groupnames[] = $value;
+                  }
 
 
+                  $converted .= $key . '&'. $value;
+                }
+              }
+              foreach($groupnames as $group)        {     ?>
+                <tbody>
+                  <td><?php print $group ?></td>
 
-                        }   ?>
-                                        </tbody>
-                                       </table>
-
-                                 </div>
-
-                               </div>
+                <?php           }
 
 
 
+              }   ?>
 
+            </tbody>
+          </table>
 
+        </div>
 
+      </div>
 
-</div>
+    </div>

@@ -1,83 +1,76 @@
-
-
 <div class="table-responsive">
-	<p><b>Number Management</b></p>
+		<p><b>Number Management</b></p>
 		<table class="table table-curved table-striped">
-			<thead>
-				<tr>
+				<thead>
+						<tr>
+								<th>Account ID</th>
+								<th>Account Name</th>
+								<th>Service ID</th>
+								<th>Service Name</th>
+								<th>Number</th>
+								<th>Tariff</th>
+								<th>In DIAL</th>
+								<th>ACTION</th>
+						</tr>
+				</thead>
 
-					<th>Account ID</th>
-					<th>Account Name</th>
-					<th>Service ID</th>
-					<th>Service Name</th>
-					<th>Number</th>
-					<th>Tariff</th>
-					<th>In DIAL</th>
-					<th>ACTION</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-				$custom_field_indial = [];
-				 foreach ($client_custom_fields as $field) {
-			   		//$client->{$this->custom_field_prefix . $field->id} = $field->value;
-			  		if($field->id==1)
-				  		{
-				  			$customValue =  $field->value;
-				  		}
+				<tbody>
+						<?php
+								$custom_field_indial = [];
+								foreach ($client_custom_fields as $field) {
+										//$client->{$this->custom_field_prefix . $field->id} = $field->value;
+								  	if($field->id==1) {
+							  				$customValue =  $field->value;
+							  		}
 
-				  	if(substr_compare("INDIAL",$field->real_name,0,5,TRUE)==0)
-					  	{
-					  		$custom_field_indial[] = $field->value;
-					  	}
+							    	if(substr_compare("INDIAL",$field->real_name,0,5,TRUE)==0) {
+								  			$custom_field_indial[] = $field->value;
+								  	}
 
-					}
+								}
 
 
-					$url = 'http://www.numbermanager.com.au/api/getService?authaccountid=26119&authemail=ishwarya.sridharan0410@gmail.com&password=83785287c883e66186d216ea6b31b27e&apikey=s1rlg0ywnpkYAWq087AqRH8iB0pMQCl5&accountid='.$customValue;
-					$content = file_get_contents($url);
-					$json = json_decode($content, true);
-					foreach($json['services'] as $item)     {
+								$url = 'http://www.numbermanager.com.au/api/getService?authaccountid=26119&authemail=ishwarya.sridharan0410@gmail.com&password=83785287c883e66186d216ea6b31b27e&apikey=s1rlg0ywnpkYAWq087AqRH8iB0pMQCl5&accountid='.$customValue;
+								$content = file_get_contents($url);
+								$json = json_decode($content, true);
+								foreach($json['services'] as $item)     {
+						?>
 
-					?>
-				<tr>
-					<td><?php print $item['accountid'] ?></td>
-					<td><?php print $item['accountname'] ?></td>
-					<td><?php print $item['serviceid'] ?></td>
-					<td><?php print $item['servicename'] ?></td>
-					<td><?php print $item['number'] ?></td>
-					<td><?php print $item['tariff'] ?></td>
+						<tr>
+								<td><?php print $item['accountid'] ?></td>
+								<td><?php print $item['accountname'] ?></td>
+								<td><?php print $item['serviceid'] ?></td>
+								<td><?php print $item['servicename'] ?></td>
+								<td><?php print $item['number'] ?></td>
+								<td><?php print $item['tariff'] ?></td>
+
 					<?php
-					foreach($custom_field_indial as $indial)
-					{
-						if(substr_compare($indial,$item['serviceid'],0,6,TRUE)==0)
-						{  ?>
-							<td> <?php print substr($indial,7) ?> </td>
-					<?php	}
-					}
+							foreach($custom_field_indial as $indial) {
+									if(substr_compare($indial,$item['serviceid'],0,6,TRUE)==0)
+							{
 					?>
 
-			<td><div class="btn-group"><a href="<?php echo $this->Html->safe($this->base_uri . 'plugin/live_answering/client_main/edit' . '/?serviceid=' . $this->Html->_($item['serviceid'],true) . '&accountid=' . $this->Html->_($item['accountid'],true) . '/');?>"  class="btn btn-xs btn-default">
-                                                    <i class="fa fa-edit fa-fw"></i> Edit
-                                                </a> </div>
+					<td> <?php print substr($indial,7) ?> </td>
+
+					<?php
+									}
+							}
+					?>
+
+					<td>
+						<div class="btn-group">
+							<a href="<?php echo $this->Html->safe($this->base_uri . 'plugin/live_answering/client_main/edit' . '/?serviceid=' . $this->Html->_($item['serviceid'],true) . '&accountid=' . $this->Html->_($item['accountid'],true) . '/');?>"
+							  class="btn btn-xs btn-default">
+		          	<i class="fa fa-edit fa-fw"></i> Edit
+		          </a>
+						</div>
 					</td>
 
 
-				</tr>
-					<?php }
-					?>
+					</tr>
+						<?php }
+						?>
 
-			</tbody>
+				</tbody>
 		</table>
-
-
-
-
-
-
-
-
-
-
-
 </div>

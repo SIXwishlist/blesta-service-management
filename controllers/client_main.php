@@ -15,7 +15,7 @@ class ClientMain extends ServiceManagementController
      */
     public function index()
     {
-
+        // Get custom fields from Client controller => save
         $client_custom_fields = $this->Clients->getCustomFieldValues(1);
         return  $this->set('client_custom_fields', $client_custom_fields);
         // Set variables all at once
@@ -26,7 +26,7 @@ class ClientMain extends ServiceManagementController
      //   $this->redirect($this->base_uri . 'plugin/number_manager/client_main/');
     }
 
-
+    // Get custom fields
     public function edit()
     {
 
@@ -35,12 +35,14 @@ class ClientMain extends ServiceManagementController
        // if ($this->isLoggedIn()) {
          //   $logged_in = true;
        // }
-    	$client_custom_fields = $this->Clients->getCustomFieldValues(1);
-        return  $this->set('client_custom_fields', $client_custom_fields);
 
+      // Get custom fields from Client controller => save
+    	$client_custom_fields = $this->Clients->getCustomFieldValues(1);
+      return  $this->set('client_custom_fields', $client_custom_fields);
     }
 
-public function services() {
+    // Read and return services
+    public function services() {
 
         $authaccountid=26119;
         $authemail="ishwarya.sridharan0410@gmail.com";
@@ -54,20 +56,21 @@ public function services() {
         $json = json_decode($content, true);
 
         foreach($json['services'] as $item) {
-        $accountId = $item['accountid'];
-        print ' - ';
-        $accountname = $item['accountname'];
-        print '<br>';
+            $accountId = $item['accountid'];
+            print ' - ';
+            $accountname = $item['accountname'];
+            print '<br>';
         }
+
         return $item;
-}
+    }
 
-
-
-public function foo() {
+    // Unused
+    public function foo() {
         return $this->partial("client_main_foo");
     }
 
+    // Lifecycle method
     public function preAction()
     {
         parent::preAction();
@@ -76,10 +79,10 @@ public function foo() {
         $this->structure->setDefaultView(APPDIR);
         $this->structure->setView(null, $this->orig_structure_view);
 
-	   	if($this->action != 'edit')
-	   	{
-	   		  $this->requireLogin($this->base_uri . 'plugin/service_management/client_main/edit/');
-	   	}
+  	   	if($this->action != 'edit')
+  	   	{
+  	   		  $this->requireLogin($this->base_uri . 'plugin/service_management/client_main/edit/');
+  	   	}
 
     }
 }

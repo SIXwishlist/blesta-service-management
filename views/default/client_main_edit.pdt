@@ -1,6 +1,6 @@
 <style>
 
-.box {
+  .box {
     border: #666666 solid 1px;
     margin-left: 90px;
     width: 300px;
@@ -39,10 +39,10 @@ array_walk_recursive($json,"myfunction");
 function myfunction($value,$key)
 {
 	if(strcmp($key,"serviceid")==0) { ?>
-    
+
       <div id="my-info" class="col-md-3 hidden-xs hidden-sm">
-           <div class="alert alert-info alert-dismissable">                                                                
-                    <strong>Service ID : <?php print $value ?></strong> 
+           <div class="alert alert-info alert-dismissable">
+                    <strong>Service ID : <?php print $value ?></strong>
            </div>
        </div>
 
@@ -52,50 +52,49 @@ function myfunction($value,$key)
       <h3 class="panel-title">Configuration Services</h3>
       </div>
       <div class="panel_content">
-      <div class="panel-body">    
-     
-     
-	     
-<?php 
+      <div class="panel-body">
 
-	//end of GROUP
-}// end of if loop for service ID. 
+
+
+<?php
+
+
+//end of GROUP
+}// end of if loop for service ID.
 
 else if((strcmp($key,"groupname")==0) || (strcmp($key,"destination")==0))
-{	
+{
 		?>
 		<table class="table table-curved table-striped">
-	  	<thead> 
+	  	<thead>
 		 <tr>
 	      <?php if(strcmp($key,"groupname")==0) { ?>
-	      <th> GROUP NAME &nbsp;&nbsp;&nbsp;  <?php print $value ?> </th>	
+	      <th> GROUP NAME &nbsp;&nbsp;&nbsp;  <?php print $value ?> </th>
 	     </tr>
-	     <tr>  
-	      <th> DESTINATIONS </th>	     
-	      </tr>    
+	     <tr>
+	      <th> DESTINATIONS </th>
+	      </tr>
 	  	  </thead>
-	  	  </table> 
-	  	  
-	  	 <?php } 
-	  	 if(strcmp($key,"destination")==0) 
+	  	  </table>
+
+	  	 <?php }
+	  	 if(strcmp($key,"destination")==0)
 	  	 	{ ?>
 	  	 <ul class="alert-info" style="background-color:#ffff;">
-	  	
+
 	  	<?php	$convertedvalue1 = str_ireplace("991161","0",$value );
 	  			$convertedvalue2 = str_ireplace("@103.77.233.2","",$convertedvalue1);
 	  	 		 echo $convertedvalue2 ?>
 	  	 </ul>
-	  	
+
 <?php
 		} // end of if destinations
 
-		
+
 	} // end of else if loop
 
-} // end of function 
+} // end of function
 
 ?>
 
 </div>
-
-
