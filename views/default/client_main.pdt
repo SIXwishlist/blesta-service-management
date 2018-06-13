@@ -59,7 +59,7 @@
 
 					<td>
 						<div class="btn-group">
-							<a href="<?php echo $this->Html->safe($this->base_uri . 'plugin/live_answering/client_main/edit' . '/?serviceid=' . $this->Html->_($item['serviceid'],true) . '&accountid=' . $this->Html->_($item['accountid'],true) . '/');?>"
+							<a href="<?php echo $this->Html->safe($this->base_uri . 'plugin/service_management/client_main/edit' . '/?serviceid=' . $this->Html->_($item['serviceid'],true) . '&accountid=' . $this->Html->_($item['accountid'],true) . '/');?>"
 							  class="btn btn-xs btn-default">
 		          	<i class="fa fa-edit fa-fw"></i> Edit
 		          </a>
