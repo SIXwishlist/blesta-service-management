@@ -1,20 +1,5 @@
-<style>
-
-  .box {
-    border: #666666 solid 1px;
-    margin-left: 90px;
-    width: 300px;
-  }
-
-  .boxa {
-    border: #666666 solid 1px;
-    margin-left: 50px;
-    width: 300px;
-  }
-</style>
 
 <div class="table-responsive">
-
 <?php
 
 $servId = intval($_GET['serviceid']);
