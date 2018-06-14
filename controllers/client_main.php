@@ -20,9 +20,12 @@ class ClientMain extends ServiceManagementController
      */
     public function index()
     {
-        // Get custom fields from Client controller => save
+	$this->log("index function");
+        
+	// Get custom fields from Client controller => save
         $client_custom_fields = $this->Clients->getCustomFieldValues(1);
 
+	/*
 	foreach ($client_custom_fields as $field) {
 	    $this->log("start");
 	    $vars = get_object_vars($field);
@@ -33,6 +36,7 @@ class ClientMain extends ServiceManagementController
 	    }
 
 	}
+	*/
 
 	return  $this->set('client_custom_fields', $client_custom_fields);
         // Set variables all at once
@@ -43,9 +47,10 @@ class ClientMain extends ServiceManagementController
      //   $this->redirect($this->base_uri . 'plugin/number_manager/client_main/');
     }
 
-    // Get custom fields
+    // Get custom fields for client_main_edit page
     public function edit()
     {
+	$this->log("edit function");
 
     	// Check whether client is logged in
       //  $logged_in = false;
@@ -58,38 +63,10 @@ class ClientMain extends ServiceManagementController
       return  $this->set('client_custom_fields', $client_custom_fields);
     }
 
-    // Read and return services
-    public function services() {
-
-        $authaccountid=26119;
-        $authemail="ishwarya.sridharan0410@gmail.com";
-        $password="83785287c883e66186d216ea6b31b27e";
-        $apikey="s1rlg0ywnpkYAWq087AqRH8iB0pMQCl5";
-
-        //to find client program
-
-        $url = 'http://www.numbermanager.com.au/api/getService?authaccountid=26119&authemail=ishwarya.sridharan0410@gmail.com&password=83785287c883e66186d216ea6b31b27e&apikey=s1rlg0ywnpkYAWq087AqRH8iB0pMQCl5';
-        $content = file_get_contents($url);
-        $json = json_decode($content, true);
-
-        foreach($json['services'] as $item) {
-            $accountId = $item['accountid'];
-            print ' - ';
-            $accountname = $item['accountname'];
-            print '<br>';
-        }
-
-        return $item;
-    }
-
-    // Unused
-    public function foo() {
-        return $this->partial("client_main_foo");
-    }
-
     // Lifecycle method
     public function preAction()
     {
+        $this->log("preAction function");
         parent::preAction();
 
         // Restore structure view location of the client portal
