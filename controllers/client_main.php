@@ -10,6 +10,11 @@
  */
 class ClientMain extends ServiceManagementController
 {
+
+    public function log($info) {
+	echo "<script>console.log( 'Debug Objects: " . $info . "' );</script>";
+    }
+
     /**
      * Redirect to the ClientTickets controller
      */
@@ -17,7 +22,19 @@ class ClientMain extends ServiceManagementController
     {
         // Get custom fields from Client controller => save
         $client_custom_fields = $this->Clients->getCustomFieldValues(1);
-        return  $this->set('client_custom_fields', $client_custom_fields);
+
+	foreach ($client_custom_fields as $field) {
+	    $this->log("start");
+	    $vars = get_object_vars($field);
+	    $keys = array_keys($vars);
+
+	    foreach ($keys as $key) {
+	        $this->log("looping key pair: " . $key . " : " . $vars[$key]);
+	    }
+
+	}
+
+	return  $this->set('client_custom_fields', $client_custom_fields);
         // Set variables all at once
         //$var2 = "hello";
        // $var3 = "world";

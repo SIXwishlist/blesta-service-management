@@ -23,9 +23,12 @@
 							  				$customValue =  $field->value;
 							  		}
 
-							    	if(substr_compare("INDIAL",$field->real_name,0,5,TRUE)==0) {
+							    		if(substr_compare("INDIAL",$field->real_name,0,5,TRUE)==0) {
 								  			$custom_field_indial[] = $field->value;
 								  	}
+									// else {
+									//	$custom_field_indial[] = $field->value . "_NOMATCH";
+									//}
 
 								}
 
@@ -45,15 +48,16 @@
 								<td><?php print $item['tariff'] ?></td>
 
 					<?php
+							$hasindial = False;
 							foreach($custom_field_indial as $indial) {
-									if(substr_compare($indial,$item['serviceid'],0,6,TRUE)==0)
-							{
-					?>
-
-					<td> <?php print substr($indial,7) ?> </td>
-
-					<?php
-									}
+								if(substr_compare($indial,$item['serviceid'],0,6,TRUE)==0) {
+									print("<td>" . substr($indial,7) . "</td>");
+									$hasindial = True;
+								} 
+							}
+							
+							if(!$hasindial) {
+								print("<td>" . "INDIAL_NO_MATCH" . "</td>");
 							}
 					?>
 
